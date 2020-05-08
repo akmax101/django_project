@@ -33,6 +33,11 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-b-160 p-t-50">
+					{% if messages %}
+							{% for message in messages %}
+							<marquee direction = "up" scrollamount=2><p><font size="6" color="#00ff00">Soryy You Entered Wrong Password !!! Try again</font></p></marquee>
+							{% endfor %}
+					{% endif %}
                 {% block content %}
 				<form class="login100-form validate-form" action="logging_in" method="POST">
                         {% csrf_token %}
