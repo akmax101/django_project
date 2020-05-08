@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from login.models import REGISTERED_USER_DETAIL
+from contest_details.models import contest_details
 from django.contrib import messages
 # Create your views here.
 def login(request):
@@ -9,8 +10,12 @@ def logging_in(request):
     try:
         print(password_entered)
         detail_of_user=REGISTERED_USER_DETAIL.objects.get(registered_uesr_password=password_entered)
-        print(detail_of_user.registered_uesr_bio)
-        return render(request,'PORTFOLIO/index.html',{"user":detail_of_user})
+        try:
+            contest_detail_of_user=contest_details.objects.get(registered_uesr_password=password_entered)
+        except:
+            contest_detail_of_user=[]
+        print(contest_detail_of_user.registered_uesr_image)
+        return render(request,'PORTFOLIO/index.html',{"user":detail_of_user,"contest":contest_detail_of_user})
     except:
         messages.info(request,"Sorry you have entered wrong password!!! try again")
         return render(request,'LOGIN/index.html')
