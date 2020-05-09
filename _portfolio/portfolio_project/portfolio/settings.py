@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'accomplishment.apps.AccomplishmentConfig',
+    'Projects.apps.ProjectsConfig',
     'stopstalk.apps.StopstalkConfig',
     'contest_details.apps.ContestDetailsConfig',
     'login.apps.LoginConfig',
