@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'stopstalk.apps.StopstalkConfig',
     'contest_details.apps.ContestDetailsConfig',
     'login.apps.LoginConfig',
     'django.contrib.admin',
